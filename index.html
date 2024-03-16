@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ButterSwap Decentralized Exchange</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
+    <script>
+        let web3 = new Web3(Web3.givenProvider);
+
+        window.ethereum.enable().then(async function(accounts) {
+            let dex = new web3.eth.Contract(ABI, ContractAddress);
+
+            let balance = await dex.methods.balances(accounts[0], 0).call();
+            console.log("Balance:", balance);
+        });
+    </script>
+</head>
+<body>
+    <h1>Decentralized Exchange</h1>
+</body>
+</html>
+
